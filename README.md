@@ -29,6 +29,7 @@ Open http://127.0.0.1:8788. The local D1 database lives under `.wrangler/state`.
 - Essays: `src/content/writing/*.md`
 - Log / now: `src/data/log.ts`, `src/data/now.ts`
 - Site metadata: `src/lib/site.ts`
+- Raw source texts: `archive/` (redacted originals, **not part of the build**)
 
 Frontmatter is validated in `src/content.config.ts`. Dates are kept as the date the
 thinking happened, not the date the file was edited.
