@@ -45,10 +45,15 @@ import Base from '../layouts/Base.astro';
 
       <h2>Privacy and data</h2>
       <p>
-        No third-party analytics, no tag manager, no advertising, no cookies. View counts are
+        No first-party analytics, no tag manager, no advertising, no cookies. View counts are
         stored per path, not per visitor. IP addresses are hashed with a secret salt and used only
         for rate limiting; raw addresses are never stored or displayed. Guestbook entries are
         public. Contact messages are private and visible only in the admin panel.
+      </p>
+      <p>
+        One third-party request is outside my control: the is-a.dev DNS zone injects Cloudflare
+        Web Analytics into proxied pages. This site's Content-Security-Policy blocks the beacon
+        from loading, so it does not run and no data is sent to it.
       </p>
       <p>
         The site does not load remote fonts, remote scripts, or embedded media. The only network

@@ -16,7 +16,9 @@ Most personal sites make the same bargain. Open the page, and a dozen third-part
 
 Most personal sites are written for recruiters. That pressure pushes design toward a résumé with rounded corners: the writing optimized for skim-speed, everything a call to action. I did not want that, and I did not want the other extreme — a blog that decays into a diary, where every passing mood gets a permalink.
 
-So I set two constraints that were mostly about refusal. First, no third-party anything at runtime: no Google Fonts, no external analytics, no tracking cookies. The only cookie is the admin session, and it is HttpOnly and SameSite=Strict. Second, the site would be written from a private archive and published selectively. Most of what I write stays local. What appears is a selection, not a feed.
+So I set two constraints that were mostly about refusal. First, no third-party dependencies I add at runtime: no Google Fonts, no external analytics, no tracking cookies. The only cookie is the admin session, and it is HttpOnly and SameSite=Strict. Second, the site would be written from a private archive and published selectively. Most of what I write stays local. What appears is a selection, not a feed.
+
+There is one exception I do not control: the is-a.dev DNS zone injects a Cloudflare Web Analytics beacon into proxied pages. The site's CSP blocks the beacon, so it never runs, but the request is still made.
 
 ## What I Did
 

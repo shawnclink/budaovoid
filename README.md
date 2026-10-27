@@ -5,7 +5,7 @@ An anonymous portfolio and writing site. Warm paper, one vertical line, no track
 - **Frontend:** Astro 5, static HTML, hand-written CSS, self-hosted fonts.
 - **Backend:** Cloudflare Pages Functions + D1 (SQLite).
 - **Features:** case studies, dated essays, guestbook with moderation, private contact form, per-page view counts, password-protected admin.
-- **URL:** https://budaovoid.is-a.dev (custom domain pending is-a.dev review) and https://budaovoid.pages.dev
+- **URL:** https://budaovoid.is-a.dev · https://budaovoid.pages.dev
 
 ## Local development
 
@@ -70,7 +70,7 @@ Pages Functions are read from `functions/` and deployed alongside `dist/`.
 
 ### Custom domain
 
-The is-a.dev DNS record is submitted as a pull request to `is-a-dev/register`:
+The is-a.dev DNS record is live (PR #58763) and the Cloudflare Pages custom domain is active:
 
 ```json
 {
@@ -101,4 +101,5 @@ lives only in Cloudflare secrets and `.dev.vars` (gitignored).
 - Type: Newsreader (serif), Inter (sans), JetBrains Mono (metadata), self-hosted via Fontsource.
 - The vertical line is the mark: a right angle to the horizontal feed.
 - Default theme is light. Dark mode is a manual toggle stored in `localStorage`.
-- CSP blocks third-party scripts, fonts, and frames. The site makes no third-party requests.
+- CSP blocks third-party scripts, fonts, and frames. The is-a.dev DNS zone injects a Cloudflare
+  Web Analytics beacon; the CSP blocks it. Everything else is same-origin.
