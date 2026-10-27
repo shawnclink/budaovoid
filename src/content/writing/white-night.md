@@ -6,6 +6,7 @@ category: "Philosophy"
 readingTime: "5 min"
 pullQuote: "Their confusion was about method. Mine was about whether the destination was worth arriving at."
 source: "Adapted from a conversation, written at sixteen, September 2025; edited by me"
+original: "archive/raw-dialogues/03-Motion蝉鸣-白夜行.txt"
 ---
 
 Somebody in the dark holds a match. The match reaches one step ahead. He does not know which way leads out, but he knows the road exists.

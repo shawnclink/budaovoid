@@ -6,6 +6,7 @@ category: "Systems"
 readingTime: "5 min"
 pullQuote: "Build for the operator who shows up after the plan is already dead."
 source: "Adapted from a conversation, July 2026; developed in dialogue, edited by me"
+original: "archive/raw-dialogues/05-哲学补充-系统工程化人生.txt"
 ---
 
 I prefer a sheet of paper to an iPad for taking notes. On paper I open the book, pick up a pen, and write. That is one layer between me and the page. On the iPad I tap the screen to wake it, swipe or type to unlock, land on a home screen, find the notes app, tap it, and wait. That is four layers. Each one costs a small tax on attention before I have written a single word, and the tax compounds across a day.

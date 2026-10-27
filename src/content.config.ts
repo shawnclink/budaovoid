@@ -26,6 +26,7 @@ const writing = defineCollection({
     readingTime: z.string(),
     pullQuote: z.string(),
     source: z.string().optional(),
+    original: z.string().optional(),
   }),
 });
 

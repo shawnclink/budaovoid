@@ -6,6 +6,7 @@ category: "Philosophy"
 readingTime: "6 min"
 pullQuote: "The question about freedom is asked from inside the machine, and the asking is an event the machine had to perform."
 source: "Adapted from a conversation, January 2026; developed in dialogue, edited by me"
+original: "archive/raw-dialogues/01-宿命论-非或是.txt"
 ---
 
 The picture I use for determinism is a tire on asphalt. Each groove it leaves is a consequence of load, speed, temperature, and the grain of the road. If you knew the initial state exactly, the tread pattern would stop being a mystery. That is the cleanest version, and I have never found a hole in it.

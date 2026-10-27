@@ -6,6 +6,7 @@ category: "Philosophy"
 readingTime: "6 min"
 pullQuote: "The middle layer exists to correct people who cannot be trusted to understand. Remove the correction and you remove the layer."
 source: "Adapted from a memo, July 2026"
+original: "archive/telegram/hedwig-2026-07-03.txt"
 ---
 
 Kropotkin's argument is not that cooperation is good. It is that cooperation is adaptive.

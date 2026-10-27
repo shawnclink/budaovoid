@@ -1512,6 +1512,39 @@ ol {
   color: var(--muted);
 }
 
+.original-source {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px 32px;
+  margin-top: 56px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line);
+}
+
+.original-source__label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 7px;
+}
+
+.original-source p {
+  max-width: 56ch;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.original-source .btn {
+  flex-shrink: 0;
+}
+
 .progress {
   position: fixed;
   top: 0;

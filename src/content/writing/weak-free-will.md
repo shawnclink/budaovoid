@@ -6,6 +6,7 @@ category: "Philosophy"
 readingTime: "6 min"
 pullQuote: "Freedom is not the ability to step outside the machine. It is the gap between the trigger and the reply."
 source: "Adapted from a conversation, September 2025; developed in dialogue, edited by me"
+original: "archive/raw-dialogues/04-社会性相关-弱自由意志.txt"
 ---
 
 How many people around twenty can take an inherited idea about existentialism or class and run it back to its source?
