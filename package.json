@@ -1,0 +1,27 @@
+{
+  "name": "budaovoid",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "npm run build && wrangler pages dev dist",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name budaovoid",
+    "db:local": "wrangler d1 execute budaovoid-db --local --file=./schema.sql",
+    "db:remote": "wrangler d1 execute budaovoid-db --remote --file=./schema.sql",
+    "assets": "node scripts/generate-assets.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource-variable/newsreader": "^5.3.0",
+    "astro": "5.18.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261027.1",
+    "playwright-core": "^1.64.1",
+    "typescript": "^5.9.3",
+    "wrangler": "^4.153.0"
+  }
+}

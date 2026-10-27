@@ -1,0 +1,568 @@
+---
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+---
+
+{
+  slug === 'urban-drain' && (
+    <figure class="case-visual">
+      <div class="visual-label">System schematic / prototype</div>
+      <div class="visual-frame">
+        <svg viewBox="0 0 800 320" role="img" aria-labelledby="drain-title drain-desc">
+          <title id="drain-title">Storm-drain prototype schematic</title>
+          <desc id="drain-desc">
+            A solar panel and battery power an Arduino over a relay to a crusher under a
+            funnel-shaped drain insert. A matrix of through-beam sensors detects debris.
+          </desc>
+          <g fill="none" stroke="var(--ink)" stroke-width="1.4">
+            <path d="M20 62 H780" />
+            <path d="M300 62 H470" stroke-width="3" />
+            <path d="M300 62 V90 H470 V62" />
+            <path d="M306 90 L392 150 L408 150 L494 90" />
+            <path d="M392 150 L392 205 M408 150 L408 205" />
+            <path d="M392 205 L420 230 L380 230 Z" stroke="var(--accent)" />
+            <path d="M250 230 L392 230 L470 230 L560 230" stroke-dasharray="4 5" />
+            <path d="M250 268 L560 268" stroke-dasharray="4 5" />
+          </g>
+          <g stroke="var(--accent)" stroke-width="1.2" fill="none">
+            <path d="M318 112 H452" />
+            <path d="M318 124 H452" />
+            <path d="M318 136 H452" />
+          </g>
+          <g fill="var(--accent)">
+            <rect x="314" y="109" width="5" height="6" />
+            <rect x="451" y="109" width="5" height="6" />
+            <rect x="314" y="121" width="5" height="6" />
+            <rect x="451" y="121" width="5" height="6" />
+            <rect x="314" y="133" width="5" height="6" />
+            <rect x="451" y="133" width="5" height="6" />
+          </g>
+          <g fill="none" stroke="var(--ink)" stroke-width="1.2">
+            <rect x="80" y="34" width="118" height="34" />
+            <path d="M92 42 L186 42 M92 50 L186 50 M92 58 L186 58" stroke-width="0.8" />
+            <path d="M120 68 V105" />
+            <rect x="96" y="105" width="62" height="30" />
+            <path d="M158 120 H210 V240 H520 V120 H540" />
+            <rect x="540" y="92" width="112" height="50" />
+            <rect x="540" y="160" width="112" height="42" />
+            <path d="M596 142 V160" />
+            <path d="M596 202 V230 H470" />
+            <path d="M470 230 V215 H424" />
+          </g>
+          <g font-family="var(--mono)" font-size="10" fill="var(--muted)" letter-spacing="0.5">
+            <text x="80" y="22">SOLAR + BATTERY</text>
+            <text x="540" y="82">ARDUINO UNO / MIXLY</text>
+            <text x="552" y="186">RELAY</text>
+            <text x="430" y="190">CRUSHER</text>
+            <text x="482" y="52">EXISTING GRATE</text>
+            <text x="298" y="170" text-anchor="end" fill="var(--accent)">SENSOR MATRIX</text>
+            <text x="250" y="258">FLOW</text>
+            <text x="250" y="294">EXISTING PIPE</text>
+          </g>
+          <g stroke="var(--accent)" stroke-width="1.2" fill="none">
+            <path d="M232 248 H282" />
+            <path d="M276 244 L282 248 L276 252" />
+            <path d="M306 160 L318 142" />
+            <path d="M420 205 L426 196" />
+          </g>
+        </svg>
+      </div>
+      <figcaption class="visual-caption">
+        The current prototype: off-grid power, an optical trigger, and a crusher in the throat of
+        the drain. Every element downstream of the sensor inherits the sensor's failure.
+      </figcaption>
+    </figure>
+  )
+}
+
+{
+  slug === 'fund-dashboard' && (
+    <figure class="case-visual">
+      <div class="visual-label">Interface sketch / three-fund view</div>
+      <div class="visual-frame">
+        <svg viewBox="0 0 800 320" role="img" aria-labelledby="fund-title fund-desc">
+          <title id="fund-title">Fund dashboard interface sketch</title>
+          <desc id="fund-desc">
+            Three fund cards show net asset value sparklines and scores, above a row of technical
+            indicators and a market status line.
+          </desc>
+          <g fill="none" stroke="var(--line-strong)" stroke-width="1">
+            <rect x="18" y="18" width="238" height="156" />
+            <rect x="281" y="18" width="238" height="156" />
+            <rect x="544" y="18" width="238" height="156" />
+          </g>
+          <g font-family="var(--mono)" font-size="10" fill="var(--muted)">
+            <text x="34" y="42">010238 · OPTICAL MODULES</text>
+            <text x="297" y="42">017811 · SEMI EQUIPMENT</text>
+            <text x="560" y="42">QDII · GLOBAL TECH</text>
+          </g>
+          <g font-family="var(--serif)" font-size="30" fill="var(--ink)">
+            <text x="34" y="86">1.482</text>
+            <text x="297" y="86">0.936</text>
+            <text x="560" y="86">2.108</text>
+          </g>
+          <g font-family="var(--mono)" font-size="9" fill="var(--muted)">
+            <text x="34" y="104">NAV · DELAYED</text>
+            <text x="297" y="104">NAV · DELAYED</text>
+            <text x="560" y="104">NAV · DELAYED</text>
+          </g>
+          <g fill="none" stroke-width="1.6">
+            <path d="M34 146 L58 138 L82 142 L106 128 L130 132 L154 118 L178 122 L202 110 L226 114" stroke="var(--accent)" />
+            <path d="M297 150 L321 146 L345 132 L369 138 L393 126 L417 130 L441 120 L465 124 L489 112" stroke="var(--ink)" />
+            <path d="M560 142 L584 148 L608 140 L632 130 L656 134 L680 122 L704 118 L728 108 L752 112" stroke="var(--muted)" />
+          </g>
+          <g stroke="var(--line)" stroke-width="1">
+            <path d="M18 196 H782" />
+          </g>
+          <g font-family="var(--mono)" font-size="9" fill="var(--muted)">
+            <text x="18" y="218">MA ALIGNMENT</text>
+            <text x="158" y="218">MACD</text>
+            <text x="248" y="218">RSI 14</text>
+            <text x="338" y="218">KDJ 9</text>
+            <text x="428" y="218">WEINSTEIN STAGE</text>
+            <text x="608" y="218">DIFF VS. YESTERDAY</text>
+          </g>
+          <g fill="var(--accent)">
+            <rect x="18" y="228" width="68" height="4" />
+            <rect x="158" y="228" width="42" height="4" />
+            <rect x="248" y="228" width="54" height="4" />
+            <rect x="338" y="228" width="36" height="4" />
+            <rect x="428" y="228" width="86" height="4" />
+            <rect x="608" y="228" width="24" height="4" />
+          </g>
+          <g fill="none" stroke="var(--line)" stroke-width="1">
+            <rect x="18" y="262" width="764" height="36" />
+          </g>
+          <g font-family="var(--mono)" font-size="9" fill="var(--muted)">
+            <text x="32" y="284">COMPOSITE SCORE</text>
+            <text x="170" y="284">TECHNICAL 50%</text>
+            <text x="310" y="284">VALUATION 35%</text>
+            <text x="450" y="284">MOMENTUM 15%</text>
+          </g>
+          <g font-family="var(--mono)" font-size="10" fill="var(--accent)">
+            <text x="620" y="284">HOLD · 61</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption class="visual-caption">
+        A sketch of the interface, not a screenshot. The number is a composite of weights I chose;
+        the date is the only part that is not an opinion.
+      </figcaption>
+    </figure>
+  )
+}
+
+{
+  slug === 'open-source-self' && (
+    <figure class="case-visual">
+      <div class="visual-label">Archive architecture / one-way loop</div>
+      <div class="visual-frame">
+        <svg viewBox="0 0 800 300" role="img" aria-labelledby="self-title self-desc">
+          <title id="self-title">Open-Source Self architecture</title>
+          <desc id="self-desc">
+            Raw conversations flow into a structured profile, then memory, then skills, then
+            outputs. The first four layers stay private; only selected outputs are public.
+          </desc>
+          <g font-family="var(--mono)" font-size="10" fill="var(--ink)">
+            <rect x="24" y="26" width="172" height="42" fill="var(--surface)" stroke="var(--line-strong)" />
+            <text x="38" y="52">RAW ARCHIVE</text>
+            <rect x="226" y="26" width="172" height="42" fill="var(--surface)" stroke="var(--line-strong)" />
+            <text x="240" y="52">PROFILE</text>
+            <rect x="428" y="26" width="172" height="42" fill="var(--surface)" stroke="var(--line-strong)" />
+            <text x="442" y="52">MEMORY</text>
+            <rect x="630" y="26" width="146" height="42" fill="var(--surface)" stroke="var(--line-strong)" />
+            <text x="644" y="52">SKILLS</text>
+            <rect x="428" y="176" width="348" height="46" fill="var(--accent-soft)" stroke="var(--accent)" />
+            <text x="442" y="204" fill="var(--accent-ink)">SELECTED OUTPUTS · PUBLIC</text>
+          </g>
+          <g fill="none" stroke="var(--ink)" stroke-width="1.2">
+            <path d="M196 47 H226" />
+            <path d="M188 40 L196 47 L188 54" />
+            <path d="M398 47 H428" />
+            <path d="M390 40 L398 47 L390 54" />
+            <path d="M600 47 H630" />
+            <path d="M592 40 L600 47 L592 54" />
+            <path d="M703 68 V176" />
+            <path d="M696 168 L703 176 L710 168" />
+            <path d="M96 68 V232 H428" stroke-dasharray="4 5" />
+            <path d="M420 225 L428 232 L420 239" />
+            <path d="M96 232 V252" />
+          </g>
+          <g font-family="var(--mono)" font-size="9" fill="var(--muted)">
+            <text x="24" y="92">63 SESSIONS · ~104 MB</text>
+            <text x="226" y="92">2026-08-14</text>
+            <text x="428" y="92">DURABLE RULES</text>
+            <text x="630" y="92">39 FOLDERS</text>
+            <text x="24" y="276">PRIVATE BY DEFAULT</text>
+            <text x="428" y="248">METHOD + FINISHED WRITING</text>
+          </g>
+          <g stroke="var(--line-strong)" stroke-width="1" fill="none">
+            <path d="M18 110 V244" stroke-dasharray="2 4" />
+            <path d="M18 110 H26" />
+            <path d="M18 244 H26" />
+          </g>
+          <g font-family="var(--mono)" font-size="9" fill="var(--muted)" transform="rotate(-90 10 177)">
+            <text x="10" y="177">PRIVATE</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption class="visual-caption">
+        The archive is a pipeline, not a portfolio. Each layer is dated, diffable, and readable by
+        an assistant. Only the last box crosses the line.
+      </figcaption>
+    </figure>
+  )
+}
+
+{
+  slug === 'dobby' && (
+    <figure class="case-visual">
+      <div class="visual-label">Paragraph mode / inline gloss</div>
+      <div class="mock-browser">
+        <div class="mock-bar">
+          <span></span><span></span><span></span>
+          <div class="mock-url">reading.example/article</div>
+        </div>
+        <div class="mock-page">
+          <p>
+            The <ruby>experiment<rt>实验</rt></ruby> was designed to measure how quickly the
+            system returned to <ruby>equilibrium<rt>平衡</rt></ruby> after the disturbance. The
+            first run produced a <ruby>deviation<rt>偏差</rt></ruby> large enough to question the
+            apparatus, not the theory.
+          </p>
+          <p class="mock-dim">
+            The gloss sits above the word and leaves the English line intact. Nothing opens.
+            Nothing replaces the page.
+          </p>
+        </div>
+      </div>
+      <figcaption class="visual-caption">
+        A reconstruction of the reading view. The Chinese is small and low-contrast on purpose;
+        the English stays the object being read.
+      </figcaption>
+    </figure>
+  )
+}
+
+{
+  slug === 'learn-stuff' && (
+    <figure class="case-visual">
+      <div class="visual-label">Session transcript / entropy</div>
+      <div class="mock-chat">
+        <div class="mock-line mock-line--ai">
+          <span class="mock-tag">TUTOR</span>
+          <p>
+            Imagine a sealed box split down the middle. Hot water on the left, ice on the right.
+            Pull out the divider. What happens next?
+          </p>
+        </div>
+        <div class="mock-line mock-line--you">
+          <span class="mock-tag">LEARNER</span>
+          <p>Heat moves from the hot side to the cold side until the whole box is the same temperature.</p>
+        </div>
+        <div class="mock-line mock-line--ai">
+          <span class="mock-tag">TUTOR</span>
+          <p>Have you ever seen a lukewarm box split itself into a hot half and a cold half?</p>
+        </div>
+        <div class="mock-line mock-line--you">
+          <span class="mock-tag">LEARNER</span>
+          <p>No. Energy conservation does not forbid it. It just never happens. Why?</p>
+        </div>
+      </div>
+      <figcaption class="visual-caption">
+        The learner supplies the question that unlocks the concept. The tutor's job is to keep
+        producing anchors, not answers.
+      </figcaption>
+    </figure>
+  )
+}
+
+{
+  slug === 'fricless' && (
+    <figure class="case-visual">
+      <div class="visual-label">The audit / necessary vs. unnecessary layers</div>
+      <div class="visual-frame">
+        <svg viewBox="0 0 800 260" role="img" aria-labelledby="fricless-title fricless-desc">
+          <title id="fricless-title">Fricless layer audit</title>
+          <desc id="fricless-desc">
+            A person on the left, a goal on the right, and four layers between them. Two layers
+            carry a real function; two are marked for removal.
+          </desc>
+          <g font-family="var(--serif)" font-size="18" fill="var(--ink)">
+            <text x="26" y="136">HUMAN</text>
+            <text x="686" y="136">GOAL</text>
+          </g>
+          <g stroke="var(--ink)" stroke-width="1.4" fill="none">
+            <rect x="210" y="56" width="60" height="148" />
+            <rect x="300" y="56" width="60" height="148" />
+            <rect x="390" y="56" width="60" height="148" />
+            <rect x="480" y="56" width="60" height="148" />
+            <path d="M120 130 H180" />
+            <path d="M172 123 L180 130 L172 137" />
+            <path d="M620 130 H670" />
+            <path d="M662 123 L670 130 L662 137" />
+          </g>
+          <g stroke="var(--accent)" stroke-width="1.2" fill="none">
+            <rect x="210" y="56" width="60" height="148" stroke-dasharray="5 5" />
+            <rect x="390" y="56" width="60" height="148" stroke-dasharray="5 5" />
+            <path d="M196 40 L284 220" />
+            <path d="M376 40 L464 220" />
+          </g>
+          <g font-family="var(--mono)" font-size="9" fill="var(--muted)" text-anchor="middle">
+            <text x="240" y="50">APPROVAL</text>
+            <text x="330" y="50">CHECK</text>
+            <text x="420" y="50">RELAY</text>
+            <text x="510" y="50">WAIT</text>
+            <text x="240" y="224">CUT</text>
+            <text x="330" y="224">KEEP</text>
+            <text x="420" y="224">CUT</text>
+            <text x="510" y="224">KEEP</text>
+          </g>
+          <g font-family="var(--mono)" font-size="9" fill="var(--accent)" text-anchor="middle">
+            <text x="330" y="240">PRODUCES UNDERSTANDING</text>
+            <text x="510" y="240">PRODUCES TRUST</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption class="visual-caption">
+        The audit does not remove friction by default. It asks what each layer produces. The
+        second question is the hard one.
+      </figcaption>
+    </figure>
+  )
+}
+
+{
+  slug === 'college-advisor' && (
+    <figure class="case-visual">
+      <div class="visual-label">Decision aid / source weights and tiers</div>
+      <div class="visual-frame">
+        <svg viewBox="0 0 800 300" role="img" aria-labelledby="college-title college-desc">
+          <title id="college-title">College advisor output shape</title>
+          <desc id="college-desc">
+            A reach match safety list on the right, with source weights of sixty percent official,
+            twenty-five percent community cases, and fifteen percent trends.
+          </desc>
+          <g font-family="var(--mono)" font-size="9" fill="var(--muted)">
+            <text x="24" y="34">SOURCE WEIGHTS</text>
+          </g>
+          <g>
+            <rect x="24" y="48" width="300" height="12" fill="var(--accent)" />
+            <rect x="324" y="48" width="125" height="12" fill="var(--ink)" />
+            <rect x="449" y="48" width="75" height="12" fill="var(--line-strong)" />
+          </g>
+          <g font-family="var(--mono)" font-size="9" fill="var(--muted)">
+            <text x="24" y="80">60 OFFICIAL · CDS, SCHOOL PAGES, ADMISSIONS</text>
+            <text x="24" y="98">25 COMMUNITY · REDDIT, CC, XIAOHONGSHU</text>
+            <text x="24" y="116">15 TREND · INDUSTRY, Niche, X</text>
+          </g>
+          <g fill="none" stroke="var(--line-strong)" stroke-width="1">
+            <path d="M24 146 H524" />
+            <rect x="24" y="170" width="160" height="86" />
+            <rect x="200" y="170" width="160" height="86" />
+            <rect x="376" y="170" width="160" height="86" />
+          </g>
+          <g font-family="var(--mono)" font-size="10" fill="var(--ink)">
+            <text x="40" y="194">REACH</text>
+            <text x="216" y="194">MATCH</text>
+            <text x="392" y="194">SAFETY</text>
+          </g>
+          <g font-family="var(--mono)" font-size="8" fill="var(--muted)">
+            <text x="40" y="214">6–8 SCHOOLS</text>
+            <text x="216" y="214">6–8 SCHOOLS</text>
+            <text x="392" y="214">6–8 SCHOOLS</text>
+            <text x="40" y="234">ADMISSIONS + COST</text>
+            <text x="216" y="234">EMPLOYMENT CLUSTER</text>
+            <text x="392" y="234">TRANSFER PATH</text>
+          </g>
+          <g fill="none" stroke="var(--line-strong)" stroke-width="1">
+            <path d="M560 24 V276" stroke-dasharray="3 4" />
+          </g>
+          <g font-family="var(--mono)" font-size="9" fill="var(--muted)">
+            <text x="580" y="40">THE RANKING</text>
+            <text x="580" y="58">IS A TIEBREAKER,</text>
+            <text x="580" y="76">NOT THE INPUT.</text>
+            <text x="580" y="108">THE OUTPUT IS</text>
+            <text x="580" y="126">AN ARGUMENT,</text>
+            <text x="580" y="144">NOT AN ORACLE.</text>
+          </g>
+        </svg>
+      </div>
+      <figcaption class="visual-caption">
+        The list looks quantitative because it is sorted. The weights are a stance, and the
+        applicant is supposed to argue with the result.
+      </figcaption>
+    </figure>
+  )
+}
+
+{
+  slug === 'this-site' && (
+    <figure class="case-visual">
+      <div class="visual-label">Architecture / static pages, small API, one database</div>
+      <div class="visual-frame">
+        <svg viewBox="0 0 800 280" role="img" aria-labelledby="site-title site-desc">
+          <title id="site-title">Portfolio architecture</title>
+          <desc id="site-desc">
+            A browser receives static HTML from the edge. Guestbook, contact, views and admin
+            calls go to Pages Functions, which read and write D1.
+          </desc>
+          <g stroke="var(--line-strong)" stroke-width="1.2" fill="var(--surface)">
+            <rect x="24" y="94" width="150" height="92" />
+            <rect x="254" y="30" width="210" height="72" />
+            <rect x="254" y="178" width="210" height="72" />
+            <rect x="544" y="178" width="150" height="72" />
+            <rect x="544" y="30" width="150" height="72" />
+          </g>
+          <g font-family="var(--mono)" font-size="10" fill="var(--ink)">
+            <text x="38" y="122">BROWSER</text>
+            <text x="268" y="58">STATIC BUILD</text>
+            <text x="268" y="206">PAGES FUNCTIONS</text>
+            <text x="558" y="206">D1</text>
+            <text x="558" y="58">ASSETS / CDN</text>
+          </g>
+          <g font-family="var(--mono)" font-size="8" fill="var(--muted)">
+            <text x="38" y="142">NO COOKIES</text>
+            <text x="38" y="158">NO ANALYTICS</text>
+            <text x="268" y="76">HTML · CSS · MINIMAL JS</text>
+            <text x="268" y="224">GUESTBOOK · CONTACT · VIEWS</text>
+            <text x="558" y="224">GUESTBOOK · MESSAGES</text>
+            <text x="558" y="240">PAGE_VIEWS</text>
+            <text x="558" y="76">SELF-HOSTED FONTS</text>
+          </g>
+          <g stroke="var(--ink)" stroke-width="1.2" fill="none">
+            <path d="M174 140 H214 V66 H254" />
+            <path d="M174 140 H214 V214 H254" />
+            <path d="M464 214 H544" />
+            <path d="M464 66 H544" />
+            <path d="M619 102 V178" />
+          </g>
+          <g stroke="var(--ink)" stroke-width="1.2" fill="none">
+            <path d="M246 59 L254 66 L246 73" />
+            <path d="M246 207 L254 214 L246 221" />
+            <path d="M536 207 L544 214 L536 221" />
+            <path d="M536 59 L544 66 L536 73" />
+          </g>
+        </svg>
+      </div>
+      <figcaption class="visual-caption">
+        Reading never touches the dynamic path. The only code that runs per request is the small
+        API that needs a database.
+      </figcaption>
+    </figure>
+  )
+}
+
+<style>
+  .mock-browser {
+    border: 1px solid var(--line-strong);
+    background: var(--paper);
+  }
+
+  .mock-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface-sunk);
+  }
+
+  .mock-bar > span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--line-strong);
+  }
+
+  .mock-url {
+    margin-left: 10px;
+    padding: 3px 10px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .mock-page {
+    padding: 28px 30px;
+    font-family: var(--serif);
+    font-size: 1.12rem;
+    line-height: 2.4;
+    color: var(--ink-soft);
+  }
+
+  .mock-page p + p {
+    margin-top: 8px;
+  }
+
+  ruby {
+    ruby-align: center;
+  }
+
+  rt {
+    font-family: var(--sans);
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    opacity: 0.85;
+  }
+
+  .mock-dim {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  .mock-chat {
+    display: grid;
+    gap: 14px;
+    padding: 6px 0;
+  }
+
+  .mock-line {
+    max-width: 88%;
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+
+  .mock-line--you {
+    margin-left: auto;
+    background: var(--accent-soft);
+    border-color: color-mix(in srgb, var(--accent) 30%, var(--line));
+  }
+
+  .mock-tag {
+    display: block;
+    margin-bottom: 7px;
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+
+  .mock-line p {
+    font-family: var(--serif);
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 720px) {
+    .mock-page {
+      padding: 18px 16px;
+      font-size: 1rem;
+    }
+
+    .mock-line {
+      max-width: 100%;
+    }
+  }
+</style>

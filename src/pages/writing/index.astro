@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import WritingRow from '../../components/WritingRow.astro';
+import { sortByDateDesc, yearOf } from '../../lib/site';
+
+const essays = sortByDateDesc(await getCollection('writing'));
+const groups = new Map<number, typeof essays>();
+for (const essay of essays) {
+  const year = yearOf(essay.data.date);
+  if (!groups.has(year)) groups.set(year, []);
+  groups.get(year)!.push(essay);
+}
+const years = Array.from(groups.keys()).sort((a, b) => b - a);
+---
+
+<Base
+  title="Writing"
+  description="Essays on determinism, mutual aid, systems, learning, and building by buDaoVoid, with original dates."
+>
+  <header class="page-head">
+    <div class="wrap">
+      <p class="page-kicker">Essays & notes · 2025–2026</p>
+      <h1 class="page-title">Thinking in public, selectively.</h1>
+      <p class="page-lede">
+        These started as private conversations and notebooks. They are edited for length, not
+        for comfort. The dates are the dates the thinking happened, not the dates it was cleaned
+        up. <a href="/rss.xml">RSS</a>.
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap page-body">
+    {
+      years.map((year) => (
+        <section class="writing-group">
+          <div class="year-head">
+            <h3>{year}</h3>
+            <span class="year-count">{groups.get(year)!.length} pieces</span>
+          </div>
+          <div>
+            {groups.get(year)!.map((entry) => <WritingRow entry={entry} showDek />)}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+</Base>

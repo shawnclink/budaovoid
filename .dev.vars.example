@@ -1,0 +1,4 @@
+# Copy to .dev.vars for local development. Never commit the real file.
+ADMIN_PASSWORD=change-me-to-a-long-random-string
+SESSION_SECRET=change-me-to-a-64-char-random-string
+IP_SALT=change-me-to-another-random-string

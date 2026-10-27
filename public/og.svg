@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f6f3ea"/>
+  <g opacity="0.06" fill="#191a18">
+    <path d="M0 470h1200v1H0zM0 120h1200v1H0z"/>
+  </g>
+  <path d="M104 92v446" stroke="#b4462a" stroke-width="3"/>
+  <path d="M80 180h48" stroke="#191a18" stroke-width="2"/>
+  <text x="180" y="195" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#191a18" letter-spacing="-1">buDaoVoid</text>
+  <text x="182" y="238" font-family="'Courier New', monospace" font-size="15" fill="#747066" letter-spacing="2">ANONYMOUS BUILDER · CHINA, UTC+8</text>
+
+  <text x="180" y="345" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#191a18" letter-spacing="-2">Truth is perpendicular</text>
+  <text x="180" y="425" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#b4462a" letter-spacing="-2">to time.</text>
+
+  <text x="182" y="500" font-family="Helvetica, Arial, sans-serif" font-size="22" fill="#747066">Selected work &amp; writing — urban infrastructure, data systems, agent tools.</text>
+
+  <path d="M180 548h940" stroke="#ddd7c7" stroke-width="1"/>
+  <text x="182" y="580" font-family="'Courier New', monospace" font-size="16" fill="#747066" letter-spacing="1">BUDAOVOID.IS-A.DEV</text>
+  <text x="1040" y="580" font-family="'Courier New', monospace" font-size="16" fill="#747066" letter-spacing="1">2026</text>
+</svg>

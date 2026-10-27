@@ -1,0 +1,84 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { formatDate, formatISO, sortByDateDesc } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const essays = sortByDateDesc(await getCollection('writing'));
+  return essays.map((entry, index) => ({
+    params: { slug: entry.id },
+    props: {
+      entry,
+      prev: essays[index + 1] ?? null,
+      next: essays[index - 1] ?? null,
+    },
+  }));
+}
+
+const { entry, prev, next } = Astro.props;
+const { Content } = await render(entry);
+const { title, dek, date, category, readingTime, pullQuote, source } = entry.data;
+---
+
+<Base
+  title={title}
+  description={dek}
+  showProgress
+  ogType="article"
+  publishedTime={formatISO(date)}
+>
+  <article>
+    <header class="essay-head">
+      <div class="wrap">
+        <div class="essay-meta">
+          <time datetime={formatISO(date)}>{formatDate(date)}</time>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>{category}</span>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>{readingTime} read</span>
+        </div>
+        <h1 class="essay-title">{title}</h1>
+        <p class="essay-dek">{dek}</p>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <div class="essay-layout">
+        <div class="essay-body">
+          <div class="prose prose--essay">
+            <Content />
+          </div>
+        </div>
+
+        <aside class="essay-aside">
+          <blockquote class="pull-quote">{pullQuote}</blockquote>
+          {source && <p class="source-note">{source}</p>}
+          <a class="essay-back" href="/writing/">All writing →</a>
+        </aside>
+      </div>
+
+      <nav class="post-nav" aria-label="Essay navigation">
+        <div>
+          {
+            prev && (
+              <a href={`/writing/${prev.id}/`}>
+                <span class="post-nav__label">Earlier</span>
+                <span class="post-nav__title">{prev.data.title}</span>
+              </a>
+            )
+          }
+        </div>
+        <div class="post-nav__next">
+          {
+            next && (
+              <a href={`/writing/${next.id}/`}>
+                <span class="post-nav__label">Later</span>
+                <span class="post-nav__title">{next.data.title}</span>
+              </a>
+            )
+          }
+        </div>
+      </nav>
+    </div>
+  </article>
+</Base>

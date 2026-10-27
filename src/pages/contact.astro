@@ -1,0 +1,116 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../lib/site';
+---
+
+<Base
+  title="Contact"
+  description="Send a private message to buDaoVoid. No newsletter, no mailing list."
+>
+  <header class="page-head">
+    <div class="wrap">
+      <p class="page-kicker">Contact / private</p>
+      <h1 class="page-title">Send a message.</h1>
+      <p class="page-lede">
+        Questions about a project, an argument with an essay, a correction, or a pointer to
+        something I should read. The message goes into a private table, not a feed.
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap page-body">
+    <div class="contact-grid">
+      <form class="form" id="contact-form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required maxlength="60" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="email">Email <span class="field-hint" style="display:inline; text-transform:none; letter-spacing:0;">(optional)</span></label>
+          <input id="email" name="email" type="email" maxlength="120" autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required maxlength="4000"></textarea>
+          <p class="field-hint">4,000 characters maximum. Do not send passwords, keys, or anything you would not want stored.</p>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="form-foot">
+          <button class="btn btn--accent" type="submit">Send message</button>
+          <p class="form-note">I read everything. I answer slowly. There is no newsletter.</p>
+        </div>
+        <p class="form-status" id="contact-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <aside class="contact-aside">
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href={SITE.github} rel="me">GitHub ↗</a></li>
+          <li><a href={SITE.blog} rel="me">Blog ↗</a></li>
+          <li><a href="/guestbook/">Guestbook</a></li>
+          <li><a href="/rss.xml">RSS</a></li>
+        </ul>
+
+        <h2 style="margin-top: 28px;">What not to send</h2>
+        <p>
+          No recruiting templates, no link-building offers, no requests to publish guest posts.
+          A sentence about why you are writing is worth more than a deck.
+        </p>
+
+        <h2>Privacy</h2>
+        <p>
+          Messages are stored in a Cloudflare D1 database I control. IP addresses are hashed for
+          rate limiting and are not displayed. No third-party analytics is running on this page.
+        </p>
+      </aside>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var form = document.getElementById('contact-form');
+      var status = document.getElementById('contact-status');
+      if (!form || !status) return;
+
+      function setStatus(message, state) {
+        status.textContent = message;
+        status.setAttribute('data-state', state || '');
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var button = form.querySelector('button[type="submit"]');
+        var data = Object.fromEntries(new FormData(form).entries());
+        button.disabled = true;
+        button.textContent = 'Sending…';
+        setStatus('', '');
+
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        })
+          .then(function (response) {
+            return response.json().then(function (body) {
+              return { ok: response.ok, body: body };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok) throw new Error(result.body && result.body.error ? result.body.error : 'Message failed.');
+            form.reset();
+            setStatus('Message received. Thank you.', 'ok');
+          })
+          .catch(function (error) {
+            setStatus(error.message || 'Something went wrong. Try again.', 'error');
+          })
+          .finally(function () {
+            button.disabled = false;
+            button.textContent = 'Send message';
+          });
+      });
+    })();
+  </script>
+</Base>

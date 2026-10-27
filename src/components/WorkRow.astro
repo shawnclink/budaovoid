@@ -1,0 +1,31 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'work'>;
+  index: number;
+  compact?: boolean;
+}
+
+const { entry, index, compact = false } = Astro.props;
+const { title, kicker, dek, period, category, stack } = entry.data;
+---
+
+<li class:list={['work-row', compact && 'work-row--compact']} data-category={category}>
+  <a class="work-link" href={`/work/${entry.id}/`}>
+    <div class="work-top">
+      <span class="work-index">{String(index).padStart(2, '0')}</span>
+      <span>{period}</span>
+      <span class="work-cat">{category}</span>
+    </div>
+    <h3 class="work-title">{title}</h3>
+    <p class="work-kicker">{kicker}</p>
+    <p class="work-dek">{dek}</p>
+    <div class="work-foot">
+      <ul class="tags">
+        {stack.slice(0, 4).map((item) => <li class="tag">{item}</li>)}
+      </ul>
+      <span class="work-open">Read case study <span class="arrow" aria-hidden="true">↗</span></span>
+    </div>
+  </a>
+</li>

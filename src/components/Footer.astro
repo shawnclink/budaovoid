@@ -1,0 +1,89 @@
+---
+import { SITE } from '../lib/site';
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-brand">{SITE.name}</p>
+        <p class="footer-brand-sub">Truth is perpendicular to time.</p>
+        <p class="footer-blurb">
+          An anonymous record of work and thinking. No analytics, no third-party fonts, no
+          trackers. Views are counted in a database I control.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="/work/">Work</a></li>
+          <li><a href="/writing/">Writing</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/now/">Now</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>Elsewhere</h2>
+        <ul>
+          <li><a href={SITE.github} rel="me">GitHub</a></li>
+          <li><a href={SITE.blog} rel="me">Blog</a></li>
+          <li><a href="/rss.xml">RSS</a></li>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="/contact/">Send a message</a></li>
+          <li><a href="/colophon/">Colophon</a></li>
+          <li><a href="/admin/" rel="nofollow">Admin</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 {SITE.name} · Built with Astro + Cloudflare</span>
+      <span class="views" data-views aria-live="polite"></span>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var el = document.querySelector('[data-views]');
+      if (!el) return;
+      var path = window.location.pathname;
+      if (path.indexOf('/admin') === 0) return;
+
+      var key = 'bv:viewed:' + path;
+      var seen = false;
+      try {
+        seen = sessionStorage.getItem(key) === '1';
+      } catch (error) {}
+
+      var url = '/api/views' + (seen ? '?path=' + encodeURIComponent(path) : '');
+      fetch(url, {
+        method: seen ? 'GET' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: seen ? undefined : JSON.stringify({ path: path }),
+      })
+        .then(function (response) {
+          if (!response.ok) throw new Error('view count unavailable');
+          return response.json();
+        })
+        .then(function (data) {
+          if (data && typeof data.count === 'number') {
+            el.textContent = data.count.toLocaleString() + ' views';
+            try {
+              sessionStorage.setItem(key, '1');
+            } catch (error) {}
+          }
+        })
+        .catch(function () {
+          el.textContent = '';
+        });
+    })();
+  </script>
+</footer>

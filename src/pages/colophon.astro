@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Colophon"
+  description="How this site is built, what it stores, and what it refuses to publish."
+>
+  <header class="page-head">
+    <div class="wrap">
+      <p class="page-kicker">Colophon / method</p>
+      <h1 class="page-title">How this site is made.</h1>
+      <p class="page-lede">
+        A short technical and editorial note. The site is part of the argument, so it should be
+        inspectable.
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap page-body">
+    <div class="prose">
+      <h2>Design</h2>
+      <p>
+        The typefaces are <strong>Newsreader</strong> (serif), <strong>Inter</strong> (sans), and
+        <strong>JetBrains Mono</strong> (metadata). They are self-hosted through Fontsource and
+        bundled into the build; no request goes to Google or any other font server.
+      </p>
+      <p>
+        The palette is warm paper, near-black ink, and one terracotta accent. The vertical line is
+        the site's mark: a right angle to the horizontal feed. Light and dark themes are both
+        supported; the choice is stored in <code>localStorage</code>, not a cookie.
+      </p>
+
+      <h2>Build</h2>
+      <p>
+        The frontend is a static <strong>Astro</strong> build. Pages are rendered to HTML at build
+        time and served from Cloudflare's edge. The dynamic parts — guestbook, contact form, page
+        counters, admin — are <strong>Cloudflare Pages Functions</strong> backed by a
+        <strong>D1</strong> SQLite database. There is no client-side framework runtime.
+      </p>
+      <p>
+        The site ships almost no JavaScript: a theme toggle, a reveal observer, a reading-progress
+        bar, a view counter, and the forms. Everything else is a document.
+      </p>
+
+      <h2>Privacy and data</h2>
+      <p>
+        No third-party analytics, no tag manager, no advertising, no cookies. View counts are
+        stored per path, not per visitor. IP addresses are hashed with a secret salt and used only
+        for rate limiting; raw addresses are never stored or displayed. Guestbook entries are
+        public. Contact messages are private and visible only in the admin panel.
+      </p>
+      <p>
+        The site does not load remote fonts, remote scripts, or embedded media. The only network
+        requests are to this domain.
+      </p>
+
+      <h2>Editorial policy</h2>
+      <p>
+        Dates are the dates the thinking happened, not the dates a piece was cleaned up. Long
+        conversations are edited and condensed; the arguments are kept, the transcripts are not
+        reproduced. Names, family details, school, city, and health information are withheld on
+        purpose. Pseudonymous accounts are linked deliberately; legal identity is not. Anonymity
+        is a boundary, not a branding exercise.
+      </p>
+      <p>
+        Some arguments in the essays were first articulated by an assistant during the
+        conversations they came from. I kept some, rejected others, and rewrote all of them. The
+        positions are mine; the prose has been through a machine, and the source note on each
+        essay says so. Drafts were also checked against the source material before publication.
+      </p>
+      <p>
+        Corrections are welcome through the <a href="/contact/">contact form</a>. If a claim here
+        is wrong, I would rather fix it than defend it.
+      </p>
+
+      <h2>The line</h2>
+      <p>
+        <em>Truth is perpendicular to time.</em> Time is the horizontal axis: the feed, the
+        chronology, the résumé. Truth cuts across it at a right angle. The line on this site is a
+        reminder to keep the vertical axis visible.
+      </p>
+
+      <h2>License</h2>
+      <p>
+        Text © 2026 buDaoVoid. The writing is mine; ask before republishing it. The code is not a
+        template and is not offered as one. Links to the site are welcome.
+      </p>
+    </div>
+  </div>
+</Base>

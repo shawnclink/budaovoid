@@ -1,0 +1,139 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import WorkRow from '../components/WorkRow.astro';
+import WritingRow from '../components/WritingRow.astro';
+import { LOG } from '../data/log';
+import { formatDate, sortByDateDesc } from '../lib/site';
+
+const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+const featured = work.filter((entry) => entry.data.featured).slice(0, 3);
+const essays = sortByDateDesc(await getCollection('writing')).slice(0, 4);
+const log = LOG.slice(0, 8);
+
+const principles = [
+  {
+    title: 'Simplify the layers',
+    body: 'Paper has one layer between a hand and a mark. An iPad has four. Every additional layer adds friction, so the first question is always which layers carry structure and which only carry delay.',
+  },
+  {
+    title: 'Engineer the inertia',
+    body: 'Willpower is an unreliable power source. A system that keeps moving when attention fails is worth more than a decision made perfectly once.',
+  },
+  {
+    title: 'Start from the broken part',
+    body: 'Do not begin with the theory of drainage. Begin with the drain that is full of leaves, the worker who has to kneel in the water, and the maintenance schedule nobody read.',
+  },
+  {
+    title: 'Publish the method',
+    body: 'Show the reasoning and the failures, not only the result. Open the method; keep the private material private. A portfolio is a window with a frame, not a confession.',
+  },
+];
+---
+
+<Base>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <p class="eyebrow">
+          <span class="status-dot" aria-hidden="true"></span>
+          Independent builder · China (UTC+8)
+        </p>
+        <h1 class="hero-title">I build where <em>the system</em> fails.</h1>
+        <p class="hero-lede">
+          A storm drain that clears its own mouth. A dashboard that refuses to pretend a signal is
+          a decision. An archive that lets a machine hand a mind back to its owner. Different
+          scales. Same method: find the smallest failing node, then rebuild outward.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn--accent" href="/work/">Selected work <span aria-hidden="true">→</span></a>
+          <a class="btn btn--quiet" href="/writing/">Read the writing</a>
+        </div>
+        <dl class="hero-facts">
+          <div class="fact">
+            <dt>Focus</dt>
+            <dd>Urban infrastructure · data systems · agent tools</dd>
+          </div>
+          <div class="fact">
+            <dt>Currently</dt>
+            <dd>Engineering transfer applications · IELTS · this site</dd>
+          </div>
+          <div class="fact">
+            <dt>Method</dt>
+            <dd>Cut layers. Engineer inertia. Publish the method.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="now-strip">
+        <span class="now-strip__label">Now / Oct 2026</span>
+        <ul class="now-strip__items">
+          <li>Preparing transfer applications</li>
+          <li>Building this site's backend</li>
+          <li>Reading in English, writing in English</li>
+          <li><a href="/now/">Full now page →</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <Section number="01" title="Selected work" link="/work/" linkLabel="All projects" note="Hardware, software, and systems built around a specific failure." id="work">
+      <ul class="work-list reveal">
+        {featured.map((entry, i) => <WorkRow entry={entry} index={i + 1} />)}
+      </ul>
+    </Section>
+
+    <Section number="02" title="Writing" link="/writing/" linkLabel="All essays" note="Essays adapted from the archive, with dates kept intact." id="writing">
+      <div class="reveal">
+        {essays.map((entry) => <WritingRow entry={entry} />)}
+      </div>
+    </Section>
+
+    <Section number="03" title="Method" link="/about/" linkLabel="More about me" note="Four rules the projects keep returning to." id="method">
+      <ol class="principles reveal">
+        {
+          principles.map((item, i) => (
+            <li class="principle">
+              <span class="principle-num">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </Section>
+
+    <Section number="04" title="Log" link="/now/" linkLabel="Now" note="Dated entries. No feed, no cadence." id="log">
+      <ul class="log-list reveal">
+        {
+          log.map((entry) => (
+            <li class="log-row">
+              <time class="log-date" datetime={entry.date}>
+                {formatDate(new Date(entry.date + 'T00:00:00Z'))}
+              </time>
+              <span class="log-text" set:html={entry.text} />
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+
+    <div class="cta-band reveal" style="margin-top: 72px;">
+      <div>
+        <h2 class="cta-title">There is no newsletter. There is a guestbook.</h2>
+        <p class="cta-text">
+          If you want to argue with an essay, ask about the patent, or tell me that a motor
+          belongs nowhere near a storm drain — leave a note. I read everything. I answer slowly.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn--accent" href="/guestbook/">Guestbook</a>
+        <a class="btn" href="/contact/">Send a message</a>
+      </div>
+    </div>
+  </div>
+</Base>

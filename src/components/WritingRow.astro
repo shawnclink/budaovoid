@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate, formatISO } from '../lib/site';
+
+interface Props {
+  entry: CollectionEntry<'writing'>;
+  showDek?: boolean;
+}
+
+const { entry, showDek = false } = Astro.props;
+const { title, date, category, dek } = entry.data;
+---
+
+<a class="writing-row" href={`/writing/${entry.id}/`}>
+  <time class="writing-date" datetime={formatISO(date)}>{formatDate(date)}</time>
+  <span class="writing-title">{title}</span>
+  <span class="writing-cat">({category})</span>
+  {showDek && <span class="writing-dek">{dek}</span>}
+</a>

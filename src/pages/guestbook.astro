@@ -1,0 +1,211 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Guestbook"
+  description="Leave a public note for buDaoVoid. No account, no email, no tracking."
+>
+  <header class="page-head">
+    <div class="wrap">
+      <p class="page-kicker">Guestbook / public</p>
+      <h1 class="page-title">Leave a note.</h1>
+      <p class="page-lede">
+        A public wall, not a comment section. Say hello, disagree with an essay, ask about the
+        drain. No account and no email. Posts appear immediately after a rate-limit check, and I
+        can hide or delete anything.
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap page-body">
+    <div class="guestbook-layout">
+      <form class="form" id="guestbook-form">
+        <div class="field">
+          <label for="gb-name">Name</label>
+          <input id="gb-name" name="name" type="text" required maxlength="60" autocomplete="nickname" />
+        </div>
+        <div class="field">
+          <label for="gb-website">Website <span class="field-hint" style="display:inline; text-transform:none; letter-spacing:0;">(optional)</span></label>
+          <input id="gb-website" name="website" type="url" maxlength="200" placeholder="https://" autocomplete="url" />
+        </div>
+        <div class="field">
+          <label for="gb-message">Note</label>
+          <textarea id="gb-message" name="message" required maxlength="1000"></textarea>
+          <p class="field-hint">1,000 characters maximum. Plain text. Links are allowed; spam is not.</p>
+        </div>
+        <div class="hp" aria-hidden="true">
+          <label for="gb-company">Company</label>
+          <input id="gb-company" name="company" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <div class="form-foot">
+          <button class="btn btn--accent" type="submit">Post note</button>
+          <p class="form-note">Public. Your note is stored in this site's database and shown on this page.</p>
+        </div>
+        <p class="form-status" id="gb-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div>
+        <div class="year-head" style="margin-bottom: 2px;">
+          <h3>Recent notes</h3>
+          <span class="year-count" id="gb-count"></span>
+        </div>
+        <ul class="gb-list" id="gb-list" aria-live="polite">
+          <li class="gb-loading">Loading notes…</li>
+        </ul>
+        <p class="notice" style="margin-top: 24px;">
+          <strong>Moderation:</strong> notes post immediately. I remove spam, abuse, and anything
+          that exposes a private person. No account, no email, no third-party tracking.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var list = document.getElementById('gb-list');
+      var count = document.getElementById('gb-count');
+      var form = document.getElementById('guestbook-form');
+      var status = document.getElementById('gb-status');
+      if (!list || !form) return;
+
+      function formatTime(value) {
+        try {
+          return new Intl.DateTimeFormat('en-GB', {
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+          }).format(new Date(value));
+        } catch (error) {
+          return '';
+        }
+      }
+
+      function safeUrl(value) {
+        if (!value) return null;
+        try {
+          var url = new URL(value);
+          return url.protocol === 'http:' || url.protocol === 'https:' ? url.toString() : null;
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function renderEntry(entry) {
+        var item = document.createElement('li');
+        item.className = 'gb-entry';
+
+        var head = document.createElement('div');
+        head.className = 'gb-head';
+
+        var name = document.createElement('span');
+        name.className = 'gb-name';
+        name.textContent = entry.name;
+
+        var link = safeUrl(entry.website);
+        if (link) {
+          var anchor = document.createElement('a');
+          anchor.href = link;
+          anchor.rel = 'nofollow ugc noopener';
+          anchor.target = '_blank';
+          anchor.textContent = entry.name;
+          name.textContent = '';
+          name.appendChild(anchor);
+        }
+
+        var time = document.createElement('time');
+        time.className = 'gb-time';
+        time.dateTime = entry.created_at;
+        time.textContent = formatTime(entry.created_at);
+
+        var body = document.createElement('p');
+        body.className = 'gb-body';
+        body.textContent = entry.message;
+
+        head.appendChild(name);
+        head.appendChild(time);
+        item.appendChild(head);
+        item.appendChild(body);
+        return item;
+      }
+
+      function load() {
+        fetch('/api/guestbook?limit=40')
+          .then(function (response) {
+            if (!response.ok) throw new Error('Guestbook unavailable.');
+            return response.json();
+          })
+          .then(function (data) {
+            list.textContent = '';
+            var entries = (data && data.entries) || [];
+            if (count) count.textContent = entries.length ? entries.length + ' shown' : '';
+            if (!entries.length) {
+              var empty = document.createElement('li');
+              empty.className = 'gb-empty';
+              empty.textContent = 'No notes yet. You can be the first.';
+              list.appendChild(empty);
+              return;
+            }
+            entries.forEach(function (entry) {
+              list.appendChild(renderEntry(entry));
+            });
+          })
+          .catch(function () {
+            list.textContent = '';
+            var error = document.createElement('li');
+            error.className = 'gb-empty';
+            error.textContent = 'The guestbook could not load. It may be offline; try again later.';
+            list.appendChild(error);
+          });
+      }
+
+      function setStatus(message, state) {
+        if (!status) return;
+        status.textContent = message;
+        status.setAttribute('data-state', state || '');
+      }
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var button = form.querySelector('button[type="submit"]');
+        var data = Object.fromEntries(new FormData(form).entries());
+        button.disabled = true;
+        button.textContent = 'Posting…';
+        setStatus('', '');
+
+        fetch('/api/guestbook', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        })
+          .then(function (response) {
+            return response.json().then(function (body) {
+              return { ok: response.ok, body: body };
+            });
+          })
+          .then(function (result) {
+            if (!result.ok) throw new Error(result.body && result.body.error ? result.body.error : 'Could not post.');
+            form.reset();
+            setStatus(
+              result.body && result.body.pending
+                ? 'Held for review. I publish notes after a spam check.'
+                : 'Posted. Thank you.',
+              'ok'
+            );
+            load();
+          })
+          .catch(function (error) {
+            setStatus(error.message || 'Could not post. Try again.', 'error');
+          })
+          .finally(function () {
+            button.disabled = false;
+            button.textContent = 'Post note';
+          });
+      });
+
+      load();
+    })();
+  </script>
+</Base>

@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import { NOW, NOW_UPDATED } from '../data/now';
+import { formatDate } from '../lib/site';
+---
+
+<Base
+  title="Now"
+  description="What buDaoVoid is doing, building, thinking about, and reading as of October 2026."
+>
+  <header class="page-head">
+    <div class="wrap">
+      <p class="page-kicker">Now / {formatDate(new Date(NOW_UPDATED + 'T00:00:00Z'))}</p>
+      <h1 class="page-title">What I'm doing now.</h1>
+      <p class="page-lede">
+        A snapshot, not a feed. If this is stale, the date is the honest part. The blog is for
+        finished writing; this page is for the state of the workbench.
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap page-body">
+    <dl class="now-list">
+      {
+        NOW.map((group) => (
+          <div class="now-item">
+            <dt>{group.label}</dt>
+            <dd>
+              <ul>
+                {group.items.map((item) => <li set:html={item} />)}
+              </ul>
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+
+    <p class="notice" style="margin-top: 32px;">
+      <strong>Last updated {formatDate(new Date(NOW_UPDATED + 'T00:00:00Z'))}.</strong>
+      This page follows the <a href="https://nownownow.com/about">/now convention</a>. For the
+      longer record, see the <a href="/work/">work</a> and <a href="/writing/">writing</a>.
+    </p>
+  </div>
+</Base>

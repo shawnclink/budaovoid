@@ -1,0 +1,8 @@
+name = "budaovoid"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "budaovoid-db"
+database_id = "6644c15a-bf4c-4edf-9dbb-c183511bd794"

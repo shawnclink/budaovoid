@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.astro/
+.wrangler/
+.dev.vars
+.DS_Store
+*.log
+content-drafts/
+
+.admin-password.tmp
+scripts/shoot*.mjs
+scripts/test-*.mjs

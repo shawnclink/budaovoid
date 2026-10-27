@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import WorkRow from '../../components/WorkRow.astro';
+
+const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+const categories = ['All', ...Array.from(new Set(work.map((entry) => entry.data.category)))];
+---
+
+<Base
+  title="Work"
+  description="Selected projects by buDaoVoid: storm-drain hardware, a fund dashboard, an open-source self archive, and agent tools."
+>
+  <header class="page-head">
+    <div class="wrap">
+      <p class="page-kicker">Selected projects · 2021–2026</p>
+      <h1 class="page-title">Things built at the point of failure.</h1>
+      <p class="page-lede">
+        Some of these are machines. Some are software. One is a method for keeping a mind
+        queryable. What they share is a starting point: a specific place where a system breaks,
+        and a refusal to start anywhere else.
+      </p>
+    </div>
+  </header>
+
+  <div class="wrap page-body">
+    <div class="filter-bar" role="group" aria-label="Filter work by category">
+      {
+        categories.map((category, i) => (
+          <button
+            class="filter-btn"
+            type="button"
+            data-filter={category}
+            aria-pressed={i === 0 ? 'true' : 'false'}
+          >
+            {category}
+          </button>
+        ))
+      }
+    </div>
+
+    <ul class="work-list" id="work-list">
+      {work.map((entry, i) => <WorkRow entry={entry} index={i + 1} />)}
+    </ul>
+
+    <p class="notice" style="margin-top: 28px;">
+      <strong>A note on authorship.</strong> Everything listed here was built or written by me.
+      The agent tools I use but did not author — Agent Reach, Book-to-Skill, Claude Vision Skill —
+      are credited on the <a href="/about/">about page</a>, not counted as work.
+    </p>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var buttons = document.querySelectorAll('[data-filter]');
+      var rows = document.querySelectorAll('#work-list .work-row');
+      buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var filter = button.getAttribute('data-filter');
+          buttons.forEach(function (other) {
+            other.setAttribute('aria-pressed', other === button ? 'true' : 'false');
+          });
+          rows.forEach(function (row) {
+            var show = filter === 'All' || row.getAttribute('data-category') === filter;
+            row.hidden = !show;
+          });
+        });
+      });
+    })();
+  </script>
+</Base>
