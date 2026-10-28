@@ -36,6 +36,28 @@ const originalUrl = original
   <article>
     <header class="essay-head">
       <div class="wrap">
+        {
+          originalUrl && (
+            <aside class="original-banner" aria-label="Original source">
+              <div>
+                <span class="original-banner__label">Redacted original</span>
+                <p>
+                  The source text behind this essay. Names, family, location, and health details
+                  have been removed before publication.
+                </p>
+              </div>
+              <a
+                class="original-banner__link"
+                href={originalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read on GitHub <span aria-hidden="true">↗</span>
+              </a>
+            </aside>
+          )
+        }
+
         <div class="essay-meta">
           <time datetime={formatISO(date)}>{formatDate(date)}</time>
           <span class="sep" aria-hidden="true">/</span>
@@ -62,28 +84,6 @@ const originalUrl = original
           <a class="essay-back" href="/writing/">All writing →</a>
         </aside>
       </div>
-
-      {
-        originalUrl && (
-          <aside class="original-source" aria-label="Original source">
-            <div>
-              <span class="original-source__label">Redacted original</span>
-              <p>
-                The source text behind this essay. Names, family, location, and health details
-                have been removed before publication.
-              </p>
-            </div>
-            <a
-              class="btn btn--quiet"
-              href={originalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Read on GitHub <span aria-hidden="true">↗</span>
-            </a>
-          </aside>
-        )
-      }
 
       <nav class="post-nav" aria-label="Essay navigation">
         <div>
