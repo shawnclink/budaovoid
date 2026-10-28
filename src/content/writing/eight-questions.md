@@ -6,7 +6,7 @@ category: "Philosophy"
 readingTime: "5 min"
 pullQuote: "If the question is a trap, noticing the trap is another special position. The staircase continues one floor up."
 source: "Adapted from a conversation, September 2025; developed in dialogue, edited by me"
-original: "archive/raw-dialogues/02-禅意八问-Special-Normal.txt"
+original: "archive/monologues/02-禅意八问-Special-Normal.md"
 ---
 
 The question I brought to the conversation was blunt: is someone who sees this much doomed?
