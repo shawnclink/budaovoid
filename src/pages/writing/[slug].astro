@@ -36,26 +36,24 @@ const originalUrl = original
   <article>
     <header class="essay-head">
       <div class="wrap">
-        <div class="essay-topline">
-          <div class="essay-meta">
-            <time datetime={formatISO(date)}>{formatDate(date)}</time>
-            <span class="sep" aria-hidden="true">/</span>
-            <span>{category}</span>
-            <span class="sep" aria-hidden="true">/</span>
-            <span>{readingTime} read</span>
-          </div>
-          {
-            originalUrl && (
-              <a
-                class="original-link"
-                href={originalUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Why not read the original? <span aria-hidden="true">↗</span>
-              </a>
-            )
-          }
+        {
+          originalUrl && (
+            <a
+              class="original-link"
+              href={originalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Why not read the original? <span aria-hidden="true">↗</span>
+            </a>
+          )
+        }
+        <div class="essay-meta">
+          <time datetime={formatISO(date)}>{formatDate(date)}</time>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>{category}</span>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>{readingTime} read</span>
         </div>
         <h1 class="essay-title">{title}</h1>
         <p class="essay-dek">{dek}</p>

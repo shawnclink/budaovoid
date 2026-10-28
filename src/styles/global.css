@@ -1512,22 +1512,13 @@ ol {
   color: var(--muted);
 }
 
-.essay-topline {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px 28px;
-  margin-bottom: 22px;
-}
-
-.essay-topline .essay-meta {
-  margin-bottom: 0;
-}
-
 .original-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
   font-family: var(--mono);
-  font-size: 9.5px;
+  font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: 0.13em;
   color: var(--accent);
