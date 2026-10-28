@@ -1512,13 +1512,18 @@ ol {
   color: var(--muted);
 }
 
+.original-cluster {
+  max-width: 960px;
+  margin: 4px 0 44px;
+}
+
 .original-cta {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
   max-width: 960px;
-  margin: 4px 0 44px;
+  margin: 0;
   padding: 26px 0 24px;
   border-top: 1px solid var(--line-strong);
   border-bottom: 1px solid var(--line);
@@ -1574,11 +1579,68 @@ ol {
   transform: translate(3px, -3px);
 }
 
+.story-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 3px;
+}
+
+.story-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.page-title--zh {
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-size: clamp(2.3rem, 5.4vw, 4rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.18;
+}
+
+.prose--zh {
+  max-width: 46em;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", serif;
+  font-size: 1.06rem;
+  line-height: 2;
+  color: var(--ink-soft);
+}
+
+.prose--zh p {
+  margin-top: 1.5em;
+}
+
+.prose--zh h2,
+.prose--zh h3 {
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", serif;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+.prose--zh h2 {
+  font-size: 1.5rem;
+  margin-top: 2.2em;
+}
+
+.prose--zh a {
+  color: var(--accent-ink);
+}
+
 @media (max-width: 720px) {
+  .original-cluster {
+    margin-bottom: 34px;
+  }
+
   .original-cta {
     align-items: flex-end;
     gap: 16px;
-    margin-bottom: 34px;
     padding: 22px 0 20px;
   }
 

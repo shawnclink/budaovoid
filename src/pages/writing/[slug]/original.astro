@@ -1,0 +1,72 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import { formatDate, formatISO } from '../../../lib/site';
+
+export async function getStaticPaths() {
+  const originals = await getCollection('originals');
+  return originals.map((entry) => ({
+    params: { slug: entry.data.essay },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const essays = await getCollection('writing');
+const essay = essays.find((item) => item.id === entry.data.essay);
+const stories = await getCollection('stories');
+const story = stories.find((item) => item.data.essay === entry.data.essay);
+const essayTitle = essay?.data.title ?? entry.data.title;
+---
+
+<Base
+  title={`${entry.data.title} — Original`}
+  description={`The redacted Chinese source text behind ${essayTitle}. Personal details removed; sentences otherwise unchanged.`}
+  ogType="article"
+  publishedTime={formatISO(entry.data.date)}
+>
+  <header class="page-head">
+    <div class="wrap">
+      <p class="page-kicker">{entry.data.kicker}</p>
+      <h1 class="page-title page-title--zh">{entry.data.title}</h1>
+      <p class="page-lede">
+        The source text behind <a href={`/writing/${entry.data.essay}/`}>“{essayTitle}”</a>.
+        This is the redacted Chinese transcript, not a translation. Personal and health details
+        were removed; the sentences are otherwise unchanged.
+      </p>
+      <div class="essay-meta" style="margin-top: 24px; margin-bottom: 0;">
+        <time datetime={formatISO(entry.data.date)}>{formatDate(entry.data.date)}</time>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Chinese</span>
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Redacted</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page-body">
+    <div class="prose prose--zh">
+      <Content />
+    </div>
+
+    <nav class="post-nav" aria-label="Original navigation">
+      <div>
+        <a href={`/writing/${entry.data.essay}/`}>
+          <span class="post-nav__label">Back to the essay</span>
+          <span class="post-nav__title">{essayTitle}</span>
+        </a>
+      </div>
+      {
+        story && (
+          <div class="post-nav__next">
+            <a href={`/writing/${entry.data.essay}/story/`}>
+              <span class="post-nav__label">English</span>
+              <span class="post-nav__title">Read the dramatic edition →</span>
+            </a>
+          </div>
+        )
+      }
+    </nav>
+  </div>
+</Base>

@@ -5,7 +5,8 @@
 ## 包含
 
 - `raw-dialogues/`：五篇整理后的核心对话（宿命论、禅意八问、白夜行、弱自由意志、系统工程化人生）。
-- `monologues/`：六篇原文的剧场化重写版，保留原标题与真实时间线；法庭、夜车、公会厅等场景为想象。网站文章顶部的 “Why not read the original?” 指向这里。
+- `monologues/`：六篇戏剧化中文底稿，作为网站英文 Dramatic edition 的翻译底本；标题与真实时间线保留，场景为想象。它们不在网站正文中直接展示。
+- 网站上的脱敏中文原文在 `src/content/originals/`；英文戏剧版在 `src/content/stories/`。
 - `transcripts/`：三篇 DeepSeek 原始导出，以及 `文本.txt`。
 - `telegram/hedwig-2026-07-03.txt`：发给自己的安那其主义与互助论备忘录。
 - `vision/`：《项目愿景与未来展望》原始文档。

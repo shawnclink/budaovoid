@@ -30,4 +30,25 @@ const writing = defineCollection({
   }),
 });
 
-export const collections = { work, writing };
+const originals = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/originals' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    essay: z.string(),
+    kicker: z.string(),
+  }),
+});
+
+const stories = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/stories' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    essay: z.string(),
+    kicker: z.string(),
+    dek: z.string().optional(),
+  }),
+});
+
+export const collections = { work, writing, originals, stories };
