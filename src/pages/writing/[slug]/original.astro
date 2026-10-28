@@ -29,7 +29,7 @@ const essayTitle = essay?.data.title ?? entry.data.title;
   <header class="page-head">
     <div class="wrap">
       <p class="page-kicker">{entry.data.kicker}</p>
-      <h1 class="page-title page-title--zh">{entry.data.title}</h1>
+      <h1 class="page-title page-title--zh" lang="zh-Hans">{entry.data.title}</h1>
       <p class="page-lede">
         The source text behind <a href={`/writing/${entry.data.essay}/`}>“{essayTitle}”</a>.
         This is the redacted Chinese transcript, not a translation. Personal and health details
@@ -46,7 +46,7 @@ const essayTitle = essay?.data.title ?? entry.data.title;
   </header>
 
   <div class="wrap page-body">
-    <div class="prose prose--zh">
+    <div class="prose prose--zh" lang="zh-Hans">
       <Content />
     </div>
 

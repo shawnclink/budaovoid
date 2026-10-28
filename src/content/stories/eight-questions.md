@@ -3,14 +3,14 @@ title: "Eight Questions Without Answers"
 date: 2025-09-22
 essay: "eight-questions"
 kicker: "Dramatic edition · English"
-dek: "A theatre after midnight, a chess game against someone wearing your own coat, and eight questions that will not close."
+dek: "After midnight, a game of chess against yourself, and eight questions that will not close."
 ---
 
 The theatre empties at midnight.
 
-One lamp stays on above the stage. Under it: a chess table, two chairs, a game left unfinished. The seats are empty. But centre row, front, sits a single ticket. No seat number. Two characters printed on it: *myself*. The ink is older than the ticket.
+One lamp stays on above the stage. Under it: a chess table, two chairs, a game left unfinished. The seats are empty. But centre row, front, one seat has a ticket on it. No seat number. Two words: *myself*.
 
-I sit down on the white side. No one is across from me. The board is set, not started. The pieces sit at their starting squares, each one turned a little off its axis. The lamp lights the board hard, sharp enough that every piece drags a short shadow, and the shadows are all the same length, whichever way the pieces face.
+I sit down on the white side. No one is across from me. The lamp lights the board hard, sharp enough that every piece drags a short shadow.
 
 "You're late," a voice says.
 
@@ -20,7 +20,7 @@ A man appears in the opposite chair. He's wearing the jacket I wore at sixteen, 
 
 "You know who I am," he says. "You just won't call me by the first person."
 
-"Fine," I say. "You're the me who hasn't been persuaded." I keep my voice low, as if the seats were full.
+"Fine," I say. "You're the me who hasn't been persuaded."
 
 "No." He says it plainly. "I'm the me who has already asked you every one of these questions and still hasn't got an answer. You go first."
 
@@ -36,7 +36,7 @@ He doesn't look at the board. He looks at me.
 
 "Where?"
 
-He lifts his chin. In the front row, at the spot the ticket sits on, someone is sitting down. Also me. Older, back bent a little, holding an unlit cigarette. He doesn't speak. He doesn't move. He watches.
+He says nothing for a while. The lamp hums at a pitch I hadn't noticed until it was the only thing in the room. Then he lifts his chin. In the front row, at the spot the ticket sits on, someone is sitting down. Also me. Older, back bent a little, holding an unlit cigarette in one hand, the other flat on his knee. He doesn't speak. He doesn't move. He watches.
 
 "That doesn't count as an audience," I say. "That's myself."
 
@@ -54,11 +54,11 @@ Second move. Knight.
 
 "You're speaking for him," I say.
 
-"I'm speaking for the one who isn't here anymore," he says. He doesn't raise his voice. "The one who told jokes at the dinner table, picked up the teacher's thread in class, read the air in a crowd. You don't like him. You think he's light. But when you're alone, the light one leaves, and the heavy one doesn't become any more like you. He just gets quieter."
+"I'm speaking for the one who isn't here anymore." He doesn't raise his voice. "The one who told jokes at the dinner table, picked up the teacher's thread in class, read the air in a crowd. You never liked him. You thought he was light, and the light ought to go somewhere else. But when you're alone, the light one leaves, and the heavy one doesn't become any more like you. He just gets quieter."
 
 Third move. Bishop.
 
-"*Special Normal*," I say. "A person discovers he isn't the most special one — only the ordinary one among the special. Is that humility?"
+"*Special Normal*," I say. "A person discovers he isn't the most special one — only the ordinary one among the special. Is that humility, or just a tidier way of keeping score?"
 
 > Yes.
 >
@@ -80,13 +80,13 @@ Fourth move. Rook.
 >
 > And you can't become him. The same mind that shows you your loneliness is the one that dismantles every illusion that would make the loneliness bearable. You'd rather have a warm mistake than a cold correct thing. You even found a literary allusion for the mistake — called it *Flowers for Algernon*.
 
-"Aren't you a little cruel?" I say.
+"Aren't you a little cruel?"
 
 "I'm speaking for you," he says. "Did you forget? I'm you."
 
 Fifth move. Queen.
 
-"And statistics?" I ask. "The statistics say not many people take these questions this deep. Can a number like that prove I really am standing in a rare place?"
+"And statistics?" I ask. "The statistics say not many people take these questions this deep, not many are left alone with them this long. Can a number like that prove I really am standing in a rare place?"
 
 > Statistics can prove you're not part of the majority.
 >
@@ -102,21 +102,21 @@ Sixth move. Pawn.
 >
 > The game has no end. The end is when you stop playing. What matters isn't winning — it's posture. It's whether, knowing the one across from you is also you, you're still willing to play the next move.
 
-"Then who am I playing?"
+"Then who am I playing? Whose hand is on the pieces on my side of the board?"
 
 He stands. The white king on the board sways, as if caught by a draft. He walks around the table to my side and puts a hand on my shoulder. Hardly any weight.
 
 "You've been playing yourself all along," he says. "You move the white pieces and the black. You think through the opponent's objection, then your own answer. You've calculated the whole game, then you ask: so why do I still not know where to go?"
 
-He walks back across, lifts the black king, and lays it down.
+He walks back across. Lifts the black king. Lays it down.
 
 "There's no winner and loser in this game," he says. "Just one person sitting under the lamp, checking again and again that he's still here."
 
-In the front row, the older me stands up and leaves. The ticket falls onto the seat like a leaf. The theatre lights go out one by one until only the lamp over the board is left.
+In the front row, the older me stands up and leaves. The ticket falls onto the seat like a leaf.
+
+The theatre lights go out one by one until only the lamp over the board is left.
 
 "And the eighth question?" I call into the dark.
-
-The dark keeps it.
 
 No one answers.
 
